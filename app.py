@@ -22,7 +22,6 @@ def hello_world():
         query = "SELECT descript,pic FROM dbo.q0c where teln=?"
         cursor.execute(query,pno)
         rowh = cursor.fetchone()
-        print(row[0],row[1])
     return render_template("index.html",desc=rowh[0],imglink=rowh[1])
 @app.route("/roomrange", methods=['GET','POST'])
 def room():
