@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz0</title>
+
+</head>
+<body>
+<h1>Shruthaja patali rao </h1>
+<h2>8604</h2>
+<br><br>
+<form action="/" method="post">
+<p>Enter a telephone number to find People : <input name="phno" type="text"></p>
+    <input type="submit">
+    </form>
+<p>{{desc}}</p>
+<p><img src="{{imglink}}"></p>
+<br><br>
+<form action="/roomrange" method="post">
+    <p>Enter room number range :<input type="number" name="start"> --> <input type="number" name="end"> </p>
+    <input type="submit">
+</form>
+<table>
+{% for i in data%}
+    <tr>
+<p>{{i[0]}}</p>
+<p>{{i[1]}}</p>
+<img alt="No image available" src="{{i[2]|safe}}">
+        </tr>
+{% endfor%}
+    </table>
+</body>
+</html>
