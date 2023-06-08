@@ -8,7 +8,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 @app.route("/", methods=['GET','POST'])
 
 def hello_world():
-    rowh=["NaN","NaN"]
+    rowh=["NaN","NaN","NaN"]
     if request.method=='POST':
         pno=request.form['phno']
         print(pno)
@@ -19,10 +19,11 @@ def hello_world():
         driver = '{ODBC Driver 17 for SQL Server}'
         conn = pyodbc.connect(f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password}')
         cursor = conn.cursor()
-        query = "SELECT descript,pic FROM dbo.q0c where teln=?"
+        query = "SELECT name,descript,pic FROM dbo.q0c where teln=?"
         cursor.execute(query,pno)
         rowh = cursor.fetchone()
-    return render_template("index.html",desc=rowh[0],imglink=rowh[1])
+        print(rowh[1])
+    return render_template("index.html",firstname=rowh[0],desc=rowh[1],imglink=rowh[2])
 @app.route("/roomrange", methods=['GET','POST'])
 def room():
     row=["no information or picture available","no information or picture available","no information or picture available"]
