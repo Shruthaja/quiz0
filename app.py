@@ -8,7 +8,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 @app.route("/", methods=['GET','POST'])
 
 def hello_world():
-    row=["Na","Na"]
+    row=["NaN","NaN"]
     if request.method=='POST':
         pno=request.form['phno']
         print(pno)
